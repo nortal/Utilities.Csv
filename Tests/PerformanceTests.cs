@@ -15,15 +15,12 @@
 
 	This file is from project https://github.com/NortalLTD/Utilities.Csv, Nortal.Utilities.Csv.Tests, file 'PerformanceTests.cs'.
 */
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Nortal.Utilities.Csv.Tests
 {
@@ -50,8 +47,9 @@ namespace Nortal.Utilities.Csv.Tests
 				}
 				stopper.Stop();
 
-				Assert.IsTrue(lines > 200 * 1000, "File unexpectantly small, read lines: " + lines);
-				Assert.IsTrue(stopper.Elapsed < TimeSpan.FromSeconds(3), "Exceeds expected time, time taken " + stopper.Elapsed);
+				Assert.IsTrue(lines > 30 * 1000, "File unexpectantly small, read lines: " + lines);
+				//obviously depends on computer the test is ran on. Still, this check should trigger if something went very wrong:
+				Assert.IsTrue(stopper.Elapsed < TimeSpan.FromSeconds(1), "Exceeds expected time, time taken " + stopper.Elapsed);
 			}
 		}
 	}

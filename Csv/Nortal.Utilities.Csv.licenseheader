@@ -15,5 +15,5 @@ extensions: .cs
 	See the License for the specific language governing permissions and
 	limitations under the License.
 
-	This file is from project https://github.com/NortalLTD/Utilities.Csv, %Namespace%, file '%FileName%'.
+	This file is from project https://github.com/Nortal/Utilities.Csv, %Namespace%, file '%FileName%'.
 */

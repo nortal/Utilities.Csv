@@ -19,23 +19,13 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-[assembly: AssemblyTitle("Csv")]
+[assembly: AssemblyTitle("Nortal.Utilities.Csv")]
 [assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Csv")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
+[assembly: AssemblyProduct("Nortal.Utilities.Csv")]
+[assembly: AssemblyCopyright("Copyright © Imre Pühvel, Nortal AS 2013")]
 
 [assembly: ComVisible(false)]
 
-[assembly: Guid("dac60411-7602-4ab3-92d8-6a4b3161ff83")]
-
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("0.9.0.0")]
 
 [assembly: InternalsVisibleTo("Nortal.Utilities.Csv.Tests")]

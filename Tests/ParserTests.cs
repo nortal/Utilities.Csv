@@ -1,4 +1,5 @@
-﻿/*
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+/*
 	Copyright 2013 Imre Pühvel, AS Nortal
 	
 	Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,14 +18,10 @@
 */
 using System;
 using System.Collections.Generic;
-using System.Linq;
-
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Nortal.Utilities.Csv.Tests
 {
 	[TestClass]
-	
 	public class ParserTests
 	{
 

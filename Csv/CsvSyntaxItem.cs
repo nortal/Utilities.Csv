@@ -17,7 +17,7 @@
 */
 namespace Nortal.Utilities.Csv
 {
-	internal enum CsvSyntaxItem
+	internal enum CsvSyntaxItem:byte
 	{
 		NotSet = 0,
 		Text,

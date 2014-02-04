@@ -15,12 +15,13 @@
 
 	This file is from project https://github.com/NortalLTD/Utilities.Csv, Nortal.Utilities.Csv.Tests, file 'LexerTests.cs'.
 */
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Nortal.Utilities.Csv.Tests
 {
