@@ -24,8 +24,10 @@ First, reference Nortal.Utilities.Csv.dll to your project and include namespace 
 
 To parse whole csv file: 
 
-	String csvString = File.ReadAllText(sampleFilePath);
-	String[][] data = CsvParser.Parse(csvString);
+```csharp
+String csvString = File.ReadAllText(sampleFilePath);
+String[][] data = CsvParser.Parse(csvString);
+```
 
 To stream csv file one row at a time:
 
