@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0"?>
 <package >
 	<metadata>
-		<id>$id$</id>
-		<version>$version$</version>
-		<title>$title$</title>
+		<id>Nortal.Utilities.Csv</id>
+		<version>0.9.0</version>
+		<title>Nortal.Utilities.Csv</title>
 		<authors>Imre Pühvel</authors>
 		<owners>Imre Pühvel, AS Nortal</owners>
 		<iconUrl>http://www.nortal.com/_gfx/logo-32x32.png</iconUrl>
-		<requireLicenseAcceptance>true</requireLicenseAcceptance>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.txt</licenseUrl>
 		<description>
 			Library to read and write CSV format according to RFC4180
@@ -18,7 +18,9 @@
 		<tags>Nortal csv</tags>
 	</metadata>
 	<files>
-		<file src="..\LICENSE.txt" target="content\"/>
-		<file src="_tools\NugetPackaging\NOTICE.txt" target="content\" />
+		<file src="..\..\..\LICENSE.txt" target="content\"/>
+		<file src="..\..\bin\Release\Nortal.Utilities.Csv.dll" target="lib\net35\"/>
+		<file src="..\..\bin\Release\Nortal.Utilities.Csv.xml" target="lib\net35\"/>
+		<file src="..\..\bin\Release\Nortal.Utilities.Csv.pdb" target="lib\net35\"/>
 	</files>
 </package>

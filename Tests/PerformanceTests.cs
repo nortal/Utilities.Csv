@@ -27,6 +27,7 @@ namespace Nortal.Utilities.Csv.Tests
 	[TestClass]
 	public class PerformanceTests
 	{
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2202:Do not dispose objects multiple times", Justification = "FileStream can handle disposing multiple times")]
 		[TestMethod]
 		public void TestLexerCanReadFileStream()
 		{

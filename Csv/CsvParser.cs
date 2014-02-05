@@ -24,7 +24,7 @@ using System.Linq;
 namespace Nortal.Utilities.Csv
 {
 	/// <summary>
-	/// CSV parser based on <see cref="http://tools.ietf.org/rfc/rfc4180.txt">RFC4180</see>.
+	/// CSV parser based on <see href="http://tools.ietf.org/rfc/rfc4180.txt">RFC4180</see>.
 	/// Parses csv input into rows and row items, automatically unescaping when required.
 	/// </summary>
 	public class CsvParser : IDisposable
@@ -224,6 +224,7 @@ namespace Nortal.Utilities.Csv
 		/// Parses csv file to rows and values.
 		/// </summary>
 		/// <param name="csv"></param>
+		/// <param name="settings"></param>
 		/// <returns></returns>
 		public static String[][] Parse(string csv, CsvSettings settings)
 		{
