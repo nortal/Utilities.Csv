@@ -26,8 +26,10 @@ To install Nortal.Utilities.Csv download built package from https://www.nuget.or
 
 To parse whole csv file: 
 
-	String csvString = File.ReadAllText(@"C:\My.csv");
-	String[][] data = CsvParser.Parse(csvString);
+```csharp
+String csvString = File.ReadAllText(sampleFilePath);
+String[][] data = CsvParser.Parse(csvString);
+```
 
 For larger files you can stream one row at a time:
 
