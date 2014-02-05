@@ -108,4 +108,3 @@ Backup*/
 UpgradeLog*.XML
 /.nuget/NuGet.exe
 
-AssemblyInformationalVersion.gen.cs
