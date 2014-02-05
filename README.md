@@ -15,6 +15,7 @@ Features include:
 Implementation
 -----------------
 Licenced under Apache Licence v2.0.
+Requires .Net Framework 3.5+
 
 Getting started
 ---------------

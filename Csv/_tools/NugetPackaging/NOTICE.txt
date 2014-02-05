@@ -1,0 +1,4 @@
+﻿This product includes software:
+
+	Nortal.Utilities.Csv (https://github.com/Nortal/Utilities.Csv)
+	Copyright 2013 Imre Pühvel, AS Nortal. Licenced under Apache License 2.0.
