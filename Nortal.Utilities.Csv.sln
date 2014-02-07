@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{87515842-355B-490C-8492-83ADAB1A94B1}"
 	ProjectSection(SolutionItems) = preProject
 		LICENSE.txt = LICENSE.txt
+		Csv\OpenPrivateKey.snk = Csv\OpenPrivateKey.snk
 		README.md = README.md
 	EndProjectSection
 EndProject

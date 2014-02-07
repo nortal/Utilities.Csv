@@ -1,8 +1,8 @@
 Nortal.Utilities.Csv
 ====================================
 
-Yet another library to help work with data formatted as Comma Separated Values (CSV), providing API for both reading and writing.
-This implementation is based on RFC 4180 (http://tools.ietf.org/rfc/rfc4180.txt) to read all valid csv files and write VALID csv files which can be read by other RFC-wise correct tools.
+This lightweight library helps to work with data formatted as Comma Separated Values (CSV).
+The focus is on standard-compliance (RFC 4180) and performance (by providing tools to stream csv for both reading and writing).
 
 Features include:
 * supports CSV special symbols within data values (linebreaks, commas and quotes)
@@ -14,8 +14,9 @@ Features include:
 
 Implementation
 -----------------
+This implementation is based on RFC 4180 (http://tools.ietf.org/rfc/rfc4180.txt).
+Requires .Net Framework 3.5 Client profile, can be used in strongly named projects. 
 Licenced under Apache Licence v2.0.
-Requires .Net Framework 3.5 Client profile.
 
 Getting started
 ---------------
