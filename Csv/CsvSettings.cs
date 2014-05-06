@@ -32,8 +32,17 @@ namespace Nortal.Utilities.Csv
 			this.RowDelimiter = Environment.NewLine;
 		}
 
-		public char FieldDelimiter { get; private set; }
-		public String RowDelimiter { get; private set; }
-		public char QuotingCharacter { get; private set; }
+		/// <summary>
+		/// Symbol to separate values within a csv row. Default is comma (',').
+		/// </summary>
+		public char FieldDelimiter { get; set; }
+		/// <summary>
+		/// Line separator, default is newline. Any string up to length of 2 could be used.
+		/// </summary>
+		public String RowDelimiter { get; set; }
+		/// <summary>
+		/// Symbol to optionally wrap values with. Defaults to '"'.
+		/// </summary>
+		public char QuotingCharacter { get; set; }
 	}
 }
