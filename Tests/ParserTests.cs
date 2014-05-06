@@ -78,12 +78,11 @@ row6,Value";
 		[TestMethod, TestCategory("Parser")]
 		public void TestQuotedValueAdvanced()
 		{
-			string csv = @"1,""quoted
-""""Value"""""",3";
+			string csv = @"1,""quoted""""Value"""""",3";
 
 			List<String> expectedValues = new List<string>();
 			expectedValues.Add("1");
-			expectedValues.Add("quoted\r\n\"Value\"");
+			expectedValues.Add("quoted\"Value\"");
 			expectedValues.Add("3");
 
 			ParseAndValidateRow(csv, expectedRows: 1, rowToCompare: 0, expectedRowValues: expectedValues);

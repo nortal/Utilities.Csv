@@ -62,7 +62,9 @@ namespace Nortal.Utilities.Csv
 		{
 			ValidateSettings();
 			char rowSeparatorFirstChar = Settings.RowDelimiter.First();
-			char? rowSeparatorSecondChar = Settings.RowDelimiter.Skip(1).FirstOrDefault();
+			char? rowSeparatorSecondChar = Settings.RowDelimiter.Length > 1
+				? Settings.RowDelimiter.Skip(1).FirstOrDefault()
+				: (char?)null;
 
 			int current;
 			StringBuilder currentLexemeValue = new StringBuilder(50);
@@ -77,12 +79,17 @@ namespace Nortal.Utilities.Csv
 				{
 					specialSyntaxItem = this.Quote;
 				}
-				else if (current == rowSeparatorFirstChar
-					&& rowSeparatorSecondChar != null
-					&& reader.Peek() == rowSeparatorSecondChar
-					&& reader.Read() > 0) //just read, always succeeds since rowSeparatorSecondChar >=0
+				else if (current == rowSeparatorFirstChar)
 				{
-					specialSyntaxItem = this.LineSeparator;
+					if (rowSeparatorSecondChar == null) // single char line separator
+					{
+						specialSyntaxItem = this.LineSeparator;
+					}
+					else if (reader.Peek() == rowSeparatorSecondChar) // double char line separator
+					{
+						reader.Read();//just consume, since matching with rowSeparatorSecondChar is verified
+						specialSyntaxItem = this.LineSeparator;
+					}
 				}
 
 				if (specialSyntaxItem.Type != CsvSyntaxItem.NotSet)

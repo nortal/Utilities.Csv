@@ -56,6 +56,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="CustomisedSettingsTests.cs" />
     <Compile Include="ParserTests.cs" />
     <Compile Include="LexerTests.cs" />
     <Compile Include="PerformanceTests.cs" />

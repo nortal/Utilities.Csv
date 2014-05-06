@@ -33,18 +33,23 @@ namespace Nortal.Utilities.Csv.Tests
 		[TestMethod, TestCategory("Lexer")]
 		public void TestLexer()
 		{
-			String csv = @",OtherText,
-""""AndMoreText";
+			const String csv = @",OtherText,""Quoted""
+""""""QuotedWithQuote""";
 
 			var expected = new CsvLexeme[]
 			{
 				new CsvLexeme(CsvSyntaxItem.Delimiter, ","),
 				new CsvLexeme(CsvSyntaxItem.Text, "OtherText"),
 				new CsvLexeme(CsvSyntaxItem.Delimiter, ","),
+				new CsvLexeme(CsvSyntaxItem.Quote, "\""),
+				new CsvLexeme(CsvSyntaxItem.Text, "Quoted"),
+				new CsvLexeme(CsvSyntaxItem.Quote, "\""),
 				new CsvLexeme(CsvSyntaxItem.LineSeparator, "\r\n"),
 				new CsvLexeme(CsvSyntaxItem.Quote, "\""),
 				new CsvLexeme(CsvSyntaxItem.Quote, "\""),
-				new CsvLexeme(CsvSyntaxItem.Text, "AndMoreText"),
+				new CsvLexeme(CsvSyntaxItem.Quote, "\""),
+				new CsvLexeme(CsvSyntaxItem.Text, "QuotedWithQuote"),
+				new CsvLexeme(CsvSyntaxItem.Quote, "\""),
 				new CsvLexeme(CsvSyntaxItem.EndOfFile, null)
 			};
 

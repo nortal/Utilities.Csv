@@ -121,19 +121,19 @@ namespace Nortal.Utilities.Csv
 			if (this.CurrentLexemeType == CsvSyntaxItem.EndOfFile) { return null; }
 
 			Boolean isQuoted = false;
-			Boolean IsQuoteModeOn = false;
+			Boolean isQuoteModeOn = false;
 			while (true)
 			{
 				if (!this.Lexemes.MoveNext()) { throw new InvalidOperationException("Unexpected end of lexer output, expected EndOfFile token."); }
 
-				if (IsQuoteModeOn)
+				if (isQuoteModeOn)
 				{
-					if (this.CurrentLexeme.Type == CsvSyntaxItem.Quote) { IsQuoteModeOn = false; }
+					if (this.CurrentLexeme.Type == CsvSyntaxItem.Quote) { isQuoteModeOn = false; }
 					else { nextValue += this.CurrentLexeme.Value; }
 					continue;
 				}
 
-				Debug.Assert(IsQuoteModeOn == false);
+				Debug.Assert(isQuoteModeOn == false);
 				switch (this.CurrentLexemeType)
 				{
 					case CsvSyntaxItem.Delimiter:
@@ -141,7 +141,7 @@ namespace Nortal.Utilities.Csv
 					case CsvSyntaxItem.EndOfFile:
 						return nextValue;
 					case CsvSyntaxItem.Quote:
-						Debug.Assert(IsQuoteModeOn == false);
+						Debug.Assert(isQuoteModeOn == false);
 						if (isQuoted)
 						{
 							nextValue += this.CurrentLexeme.Value;
@@ -150,7 +150,7 @@ namespace Nortal.Utilities.Csv
 						{
 							isQuoted = true;
 						}
-						IsQuoteModeOn = true;
+						isQuoteModeOn = true;
 						continue;
 					case CsvSyntaxItem.Text:
 						nextValue += this.CurrentLexeme.Value;

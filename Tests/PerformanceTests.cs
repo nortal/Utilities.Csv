@@ -50,7 +50,7 @@ namespace Nortal.Utilities.Csv.Tests
 
 				Assert.IsTrue(lines > 30 * 1000, "File unexpectantly small, read lines: " + lines);
 				//obviously depends on computer the test is ran on. Still, this check should trigger if something went very wrong:
-				Assert.IsTrue(stopper.Elapsed < TimeSpan.FromSeconds(1), "Exceeds expected time, time taken " + stopper.Elapsed);
+				Assert.IsTrue(stopper.Elapsed < TimeSpan.FromSeconds(2), "Exceeds expected time, time taken " + stopper.Elapsed);
 			}
 		}
 	}
