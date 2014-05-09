@@ -53,3 +53,7 @@ To write values in CSV format:
 		File.WriteAllText(@"C:\my.csv", writer.ToString());
 	}
 
+To use non-default setting, for example TAB as field separator:
+
+	var settings = new CsvSettings() { FieldDelimiter = '\t' };
+	var csv = new CsvWriter(writer, settings); // .. or similarly CsvParser for reading
