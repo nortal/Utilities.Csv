@@ -2,7 +2,7 @@
 <package >
 	<metadata>
 		<id>Nortal.Utilities.Csv</id>
-		<version>0.9.0</version>
+		<version>0.9.2</version>
 		<title>Nortal.Utilities.Csv</title>
 		<authors>Imre Pühvel</authors>
 		<owners>Imre Pühvel, AS Nortal</owners>
@@ -10,7 +10,7 @@
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.txt</licenseUrl>
 		<description>
-			Library to read and write CSV format according to RFC4180
+			Library to read and write CSV format according to RFC4180. Can be used in strongly named projects.
 		</description>
 		<projectUrl>https://github.com/Nortal/Utilities.Csv</projectUrl>
 		<releaseNotes></releaseNotes>
