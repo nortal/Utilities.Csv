@@ -88,6 +88,33 @@ row6,Value";
 			ParseAndValidateRow(csv, expectedRows: 1, rowToCompare: 0, expectedRowValues: expectedValues);
 		}
 
+		[TestMethod, TestCategory("Parser")]
+		public void TestQuotedValueContainsFieldDelimiter()
+		{
+			string csv = "1,\",before,after,\",3";
+
+			List<String> expectedValues = new List<string>();
+			expectedValues.Add("1");
+			expectedValues.Add(",before,after,");
+			expectedValues.Add("3");
+
+			ParseAndValidateRow(csv, expectedRows: 1, rowToCompare: 0, expectedRowValues: expectedValues);
+		}
+
+		[TestMethod, TestCategory("Parser")]
+		public void TestQuotedValueContainsRowDelimiter()
+		{
+			string csv = @"1,""
+body
+"",3";
+
+			List<String> expectedValues = new List<string>();
+			expectedValues.Add("1");
+			expectedValues.Add("\r\nbody\r\n");
+			expectedValues.Add("3");
+
+			ParseAndValidateRow(csv, expectedRows: 1, rowToCompare: 0, expectedRowValues: expectedValues);
+		}
 
 		[TestMethod, TestCategory("Parser")]
 		public void TestEmptyFile()
