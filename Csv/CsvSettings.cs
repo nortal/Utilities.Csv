@@ -26,10 +26,10 @@ namespace Nortal.Utilities.Csv
 	{
 		public CsvSettings()
 		{
-			// Load ISO4801 settings
+			// Load ISO4180 settings
 			this.FieldDelimiter = ',';
 			this.QuotingCharacter = '"';
-			this.RowDelimiter = Environment.NewLine;
+			this.RowDelimiter = "\r\n";
 		}
 
 		/// <summary>
