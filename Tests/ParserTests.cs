@@ -116,6 +116,34 @@ body
 			ParseAndValidateRow(csv, expectedRows: 1, rowToCompare: 0, expectedRowValues: expectedValues);
 		}
 
+		/// <summary>
+		/// From RFC:
+		/// 5.  [---] If fields are not enclosed with double quotes, then double quotes may not appear inside the fields.
+		/// This test verifies that having a single quote inside value will throw an exception.
+		/// </summary>
+		[TestMethod, TestCategory("Parser")]
+		[ExpectedException(typeof(InvalidOperationException))]
+		public void TestUnquotedValueContainingQuoteThrows()
+		{
+			string csv = @"1,before""after,3";
+
+			ParseAndValidateRow(csv, expectedRows: 0);
+		}
+
+		/// <summary>
+		/// From RFC:
+		/// 5.  [---] If fields are not enclosed with double quotes, then double quotes may not appear inside the fields.
+		/// This test verifies that parser does not allow entering quoting mode inside a value.
+		/// </summary>
+		[TestMethod, TestCategory("Parser")]
+		[ExpectedException(typeof(InvalidOperationException))]
+		public void TestUnquotedValueContaining2QuotesThrows()
+		{
+			string csv = @"1,before""""after,3";
+
+			ParseAndValidateRow(csv, expectedRows: 0);
+		}
+
 		[TestMethod, TestCategory("Parser")]
 		public void TestEmptyFile()
 		{
