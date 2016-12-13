@@ -29,7 +29,7 @@ namespace Nortal.Utilities.Csv.Tests
 	{
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2202:Do not dispose objects multiple times", Justification = "FileStream can handle disposing multiple times")]
 		[TestMethod]
-		public void TestLexerCanReadFileStream()
+		public void TestPerformanceBySample200k()
 		{
 			var executionPath = new FileInfo(Assembly.GetAssembly(this.GetType()).Location);
 			String sampleFilePath = Path.Combine(executionPath.Directory.FullName, "Sample200k.csv");
