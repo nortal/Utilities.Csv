@@ -30,19 +30,29 @@ namespace Nortal.Utilities.Csv
 			this.FieldDelimiter = ',';
 			this.QuotingCharacter = '"';
 			this.RowDelimiter = "\r\n";
+			this.QuotingMode = CsvQuotingMode.Minimal;
 		}
 
 		/// <summary>
 		/// Symbol to separate values within a csv row. Default is comma (',').
 		/// </summary>
 		public char FieldDelimiter { get; set; }
+
 		/// <summary>
 		/// Line separator, default is newline. Any string up to length of 2 could be used.
 		/// </summary>
 		public String RowDelimiter { get; set; }
+
 		/// <summary>
 		/// Symbol to optionally wrap values with. Defaults to '"'.
 		/// </summary>
 		public char QuotingCharacter { get; set; }
+
+		/// <summary>
+		/// Determines how individual values are wrapped with quoting characters.
+		/// Applies only to writing CSV using CsvWriter class. Parser handles all wrapping styles valid by RFC4180 rules.
+		/// The default value is CsvQuotingMode.Minimal.
+		/// </summary>
+		public CsvQuotingMode QuotingMode { get; set; }
 	}
 }

@@ -130,5 +130,19 @@ namespace Nortal.Utilities.Csv.Tests
 				Assert.AreEqual(expected, writer.ToString());
 			}
 		}
+
+		[TestMethod, TestCategory("CustomizedSettings")]
+		public void TestQuoteAllMode()
+		{
+			using (var writer = new StringWriter())
+			{
+				var csv = new CsvWriter(writer, new CsvSettings() { QuotingCharacter = '\'', QuotingMode = CsvQuotingMode.QuoteAll });
+				csv.WriteLine("1", "", null);
+				const String expected =
+@"'1','',''
+";
+				Assert.AreEqual(expected, writer.ToString());
+			}
+		}
 	}
 }

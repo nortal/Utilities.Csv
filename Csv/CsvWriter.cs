@@ -111,7 +111,7 @@ namespace Nortal.Utilities.Csv
 		/// <param name="value"></param>
 		public void Write(String value)
 		{
-			this.WriteRawValue(FormatValue(value, this.Settings));
+			this.WriteRawValue(WrapValueForCsv(value, this.Settings));
 		}
 
 		/// <summary>
@@ -149,12 +149,25 @@ namespace Nortal.Utilities.Csv
 		#endregion
 
 		/// <summary>
-		/// Escapes given value based on CSV rules.
+		/// Escapes given value based on CSV rules, a
 		/// </summary>
 		/// <param name="value"></param>
 		/// <param name="settings"></param>
 		/// <returns>value suitable for using as single item in csv row.</returns>
-		public static String FormatValue(String value, CsvSettings settings)
+		public static String WrapValueForCsv(String value, CsvSettings settings)
+		{
+			switch (settings.QuotingMode)
+			{
+				case CsvQuotingMode.Minimal:
+					return WrapValueForCsvUsingMinimalMode(value, settings);
+				case CsvQuotingMode.QuoteAll:
+					return WrapValueForCsvUsingQuoteAllMode(value, settings);
+				default:
+					throw new NotSupportedException($@"Quoting mode {settings.QuotingMode} is not yet implemented.");
+			}
+		}
+
+		private static string WrapValueForCsvUsingMinimalMode(string value, CsvSettings settings)
 		{
 			if (value == null) { return null; }
 			if (value.Length == 0) { return value; }
@@ -171,6 +184,14 @@ namespace Nortal.Utilities.Csv
 					+ settings.QuotingCharacter;
 			}
 			return value;
+		}
+
+		private static string WrapValueForCsvUsingQuoteAllMode(string value, CsvSettings settings)
+		{
+			String wrapped = settings.QuotingCharacter 
+				+ value?.Replace(settings.QuotingCharacter.ToString(), settings.QuotingCharacter.ToString() + settings.QuotingCharacter)
+				+ settings.QuotingCharacter;
+			return wrapped;
 		}
 	}
 }

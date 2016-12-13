@@ -58,6 +58,7 @@
     <Compile Include="CsvLexeme.cs" />
     <Compile Include="CsvLexer.cs" />
     <Compile Include="CsvParser.cs" />
+    <Compile Include="CsvQuotingMode.cs" />
     <Compile Include="CsvSettings.cs" />
     <Compile Include="CsvSyntaxItem.cs" />
     <Compile Include="CsvWriter.cs" />
