@@ -28,25 +28,46 @@ namespace Nortal.Utilities.Csv
 	/// </summary>
 	public class CsvWriter
 	{
+		/// <summary>
+		/// Initializes the writer object to write CSV using standard RFC4180 settings.
+		/// </summary>
+		/// <param name="writer">Text collector for CSV to be written to.</param>
 		public CsvWriter(TextWriter writer)
-			: this(writer, new CsvSettings())
+			: this(writer, (CsvSettings) null)
 		{
 		}
 
+		/// <summary>
+		/// Initializes the writer object with custom settings.
+		/// </summary>
+		/// <param name="writer">Text collector for CSV to be written to.</param>
+		/// <param name="settings">Parameters to control how the CSV will be written. if omitted then defaults to CSV as stated by RFC4180.</param>
 		public CsvWriter(TextWriter writer, CsvSettings settings)
 		{
+			if (writer == null) { throw new ArgumentNullException(nameof(writer)); }
 			this.Writer = writer;
-			this.Settings = settings;
+			this.Settings = settings ?? new CsvSettings();
 			this.LineAlreadyStarted = false;
 			this.FormattingCulture = Thread.CurrentThread.CurrentCulture;
 		}
 
+		/// <summary>
+		/// Defines csv parameters to use when creating fields, row, wrappers.
+		/// </summary>
 		private CsvSettings Settings { get; set; }
+
+		/// <summary>
+		/// Stream where output CSV is written to.
+		/// </summary>
 		private TextWriter Writer { get; set; }
+		
+		/// <summary>
+		/// Internal tracker used for determining if a field separator is required for next value to be written to writer.
+		/// </summary>
 		private Boolean LineAlreadyStarted { get; set; }
 
 		/// <summary>
-		/// Culture to use when automatically formatting IFormattables.
+		/// Culture to use when automatically formatting IFormattables to strings.
 		/// </summary>
 		public CultureInfo FormattingCulture { get; set; }
 
@@ -118,7 +139,7 @@ namespace Nortal.Utilities.Csv
 		/// Writes next value to current csv row, escaping special characters 
 		/// </summary>
 		/// <param name="formattable"></param>
-		/// <param name="format"></param>
+		/// <param name="format">.net formatstring to apply to the formattable object during serializing.</param>
 		public void Write(IFormattable formattable, String format)
 		{
 			if (formattable == null)
@@ -132,7 +153,7 @@ namespace Nortal.Utilities.Csv
 		}
 
 		/// <summary>
-		/// Override to choose format for a formattable value.
+		/// Override to choose a default format for a formattable value.
 		/// </summary>
 		/// <param name="formattable"></param>
 		/// <returns></returns>
@@ -149,7 +170,7 @@ namespace Nortal.Utilities.Csv
 		#endregion
 
 		/// <summary>
-		/// Escapes given value based on CSV rules, a
+		/// Escapes given value based on CSV rules.
 		/// </summary>
 		/// <param name="value"></param>
 		/// <param name="settings"></param>
@@ -167,6 +188,12 @@ namespace Nortal.Utilities.Csv
 			}
 		}
 
+		/// <summary>
+		/// Applies wrapping to given value for using in CSV file. This wrapping method is adding the wrapping characters only if the given value contains any special symbols by given csv settings.
+		/// </summary>
+		/// <param name="value">original unwrapped value.</param>
+		/// <param name="settings"></param>
+		/// <returns>CSV value ready to be used in CSV, wrapped if it was necessary.</returns>
 		private static string WrapValueForCsvUsingMinimalMode(string value, CsvSettings settings)
 		{
 			if (value == null) { return null; }
@@ -186,6 +213,12 @@ namespace Nortal.Utilities.Csv
 			return value;
 		}
 
+		/// <summary>
+		/// Applies wrapping to given value for using in CSV file. This wrapping method applies wrappers to all values, including empty ones and nulls.
+		/// </summary>
+		/// <param name="value">The original unwrapped value.</param>
+		/// <param name="settings"></param>
+		/// <returns>Wrapped value</returns>
 		private static string WrapValueForCsvUsingQuoteAllMode(string value, CsvSettings settings)
 		{
 			String wrapped = settings.QuotingCharacter 
