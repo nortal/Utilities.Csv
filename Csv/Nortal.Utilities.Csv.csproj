@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Nortal.Utilities.AssemblyVersioning.MsBuildTask.0.11.0\build\Nortal.Utilities.AssemblyVersioning.MsBuildTask.props" Condition="Exists('..\packages\Nortal.Utilities.AssemblyVersioning.MsBuildTask.0.11.0\build\Nortal.Utilities.AssemblyVersioning.MsBuildTask.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -50,6 +50,17 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>..\OpenPrivateKey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'RC|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>bin\Release\Nortal.Utilities.Csv.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>1591</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -70,6 +81,7 @@
     <None Include="packages.config" />
     <None Include="Properties\Nortal.Utilities.AssemblyVersioning.MsBuildTask.props" />
     <None Include="_tools\NugetPackaging\Nortal.Utilities.Csv.nuspec" />
+    <None Include="_tools\NugetPackaging\PackageRC.bat" />
     <None Include="_tools\NugetPackaging\PackageRelease.bat" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

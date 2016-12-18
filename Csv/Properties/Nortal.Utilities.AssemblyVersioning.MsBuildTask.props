@@ -22,5 +22,6 @@ Tokens available for use:
 			{CustomField1} .. {CustomField3}
 Check https://github.com/nortal/AssemblyVersioning/wiki/Generator-options for more documentation.
 		-->
+		<AssemblyVersioningIsPrerelease Condition=" '$(Configuration)' == 'RC' ">True</AssemblyVersioningIsPrerelease>
 	</PropertyGroup>
 </Project>
