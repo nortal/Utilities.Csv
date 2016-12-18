@@ -18,7 +18,6 @@
 		<tags>Nortal csv</tags>
 	</metadata>
 	<files>
-		<file src="..\..\..\LICENSE.txt" target="content\"/>
 		<file src="..\..\bin\Release\Nortal.Utilities.Csv.dll" target="lib\net35\"/>
 		<file src="..\..\bin\Release\Nortal.Utilities.Csv.xml" target="lib\net35\"/>
 		<file src="..\..\bin\Release\Nortal.Utilities.Csv.pdb" target="lib\net35\"/>
