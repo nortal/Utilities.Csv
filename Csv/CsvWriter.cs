@@ -140,7 +140,7 @@ namespace Nortal.Utilities.Csv
 		/// </summary>
 		/// <param name="formattable"></param>
 		/// <param name="format">.net formatstring to apply to the formattable object during serializing.</param>
-		public void Write(IFormattable formattable, String format)
+		public void Write(IFormattable formattable, String format = null)
 		{
 			if (formattable == null)
 			{
