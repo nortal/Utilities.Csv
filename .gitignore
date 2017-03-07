@@ -109,3 +109,4 @@ UpgradeLog*.XML
 /.nuget/NuGet.exe
 
 /Csv/Properties/AssemblyInformationalVersion.gen.cs
+/.vs
