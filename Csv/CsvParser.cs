@@ -203,7 +203,7 @@ namespace Nortal.Utilities.Csv
 			if (singleRow == null) { throw new ArgumentNullException("singleRow"); }
 			if (settings == null) { throw new ArgumentNullException("settings"); }
 
-			using (CsvParser parser = new CsvParser(singleRow, settings))
+			using (var parser = new CsvParser(singleRow, settings))
 			{
 				String[] firstRow = parser.ReadNextRow();
 				return firstRow;
@@ -231,7 +231,7 @@ namespace Nortal.Utilities.Csv
 			if (csv == null) { throw new ArgumentNullException("csv"); }
 			if (settings == null) { throw new ArgumentNullException("settings"); }
 
-			using (CsvParser parser = new CsvParser(csv, settings))
+			using (var parser = new CsvParser(csv, settings))
 			{
 				return parser.ReadToEnd();
 			}

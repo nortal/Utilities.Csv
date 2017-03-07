@@ -44,8 +44,7 @@ namespace Nortal.Utilities.Csv
 		/// <param name="settings">Parameters to control how the CSV will be written. if omitted then defaults to CSV as stated by RFC4180.</param>
 		public CsvWriter(TextWriter writer, CsvSettings settings)
 		{
-			if (writer == null) { throw new ArgumentNullException(nameof(writer)); }
-			this.Writer = writer;
+			this.Writer = writer ?? throw new ArgumentNullException(nameof(writer));
 			this.Settings = settings ?? new CsvSettings();
 			this.LineAlreadyStarted = false;
 			this.FormattingCulture = Thread.CurrentThread.CurrentCulture;
@@ -92,7 +91,7 @@ namespace Nortal.Utilities.Csv
 		public void WriteLine(params String[] values)
 		{
 			if (values == null) { throw new ArgumentNullException("values"); }
-			foreach (var value in values)
+			foreach (string value in values)
 			{
 				this.Write(value);
 			}
@@ -148,7 +147,7 @@ namespace Nortal.Utilities.Csv
 				return;
 			}
 			if (format == null) { format = GetDefaultFormatFor(formattable); }
-			String formatted = formattable.ToString(format, this.FormattingCulture);
+			string formatted = formattable.ToString(format, this.FormattingCulture);
 			this.Write(formatted);
 		}
 
