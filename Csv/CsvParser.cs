@@ -117,7 +117,7 @@ namespace Nortal.Utilities.Csv
 
 		private String ReadNextCsvValue()
 		{
-			String nextValue = null;
+			StringBuilder nextValue = new StringBuilder();
 			if (this.CurrentLexemeType == CsvSyntaxItem.EndOfFile) { return null; }
 
 			Boolean isQuoted = false;
@@ -129,7 +129,7 @@ namespace Nortal.Utilities.Csv
 				if (isQuoteModeOn)
 				{
 					if (this.CurrentLexeme.Type == CsvSyntaxItem.Quote) { isQuoteModeOn = false; }
-					else { nextValue += this.CurrentLexeme.Value; }
+					else { nextValue.Append(this.CurrentLexeme.Value); }
 					continue;
 				}
 
@@ -139,12 +139,12 @@ namespace Nortal.Utilities.Csv
 					case CsvSyntaxItem.Delimiter:
 					case CsvSyntaxItem.LineSeparator:
 					case CsvSyntaxItem.EndOfFile:
-						return nextValue;
+						return nextValue.ToString();
 					case CsvSyntaxItem.Quote:
 						Debug.Assert(isQuoteModeOn == false);
 						if (isQuoted)
 						{
-							nextValue += this.CurrentLexeme.Value;
+							nextValue.Append(this.CurrentLexeme.Value);
 						}
 						else
 						{
@@ -153,7 +153,7 @@ namespace Nortal.Utilities.Csv
 						isQuoteModeOn = true;
 						continue;
 					case CsvSyntaxItem.Text:
-						nextValue += this.CurrentLexeme.Value;
+						nextValue.Append(this.CurrentLexeme.Value);
 						continue;
 					default:
 						throw new NotSupportedException(this.CurrentLexemeType.ToString());
