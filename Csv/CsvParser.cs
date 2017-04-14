@@ -20,6 +20,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text;
 
 namespace Nortal.Utilities.Csv
 {
@@ -139,6 +140,7 @@ namespace Nortal.Utilities.Csv
 					case CsvSyntaxItem.Delimiter:
 					case CsvSyntaxItem.LineSeparator:
 					case CsvSyntaxItem.EndOfFile:
+						if (nextValue.Length == 0) { return null; }
 						return nextValue.ToString();
 					case CsvSyntaxItem.Quote:
 						Debug.Assert(isQuoteModeOn == false);
