@@ -2,7 +2,7 @@
 <package >
 	<metadata>
 		<id>Nortal.Utilities.Csv</id>
-		<version>0.10.0</version>
+		<version>1.0.0.0</version>
 		<title>Nortal.Utilities.Csv</title>
 		<authors>Imre Pühvel</authors>
 		<owners>Imre Pühvel, AS Nortal</owners>
