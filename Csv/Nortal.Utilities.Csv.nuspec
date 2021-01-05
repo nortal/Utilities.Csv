@@ -13,7 +13,7 @@
 			.Net Standard library to read and write CSV format according to RFC4180. Can be used in strongly named projects.
 		</description>
 		<projectUrl>https://github.com/Nortal/Utilities.Csv</projectUrl>
-		<releaseNotes></releaseNotes>
+		<releaseNotes>https://github.com/nortal/Utilities.Csv/releases</releaseNotes>
 		<copyright>Copyright 2013-2021 Imre Pühvel, AS Nortal. Licenced under Apache License 2.0.</copyright>
 		<tags>Nortal csv rfc4180</tags>
 		<dependencies>
