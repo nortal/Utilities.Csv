@@ -16,6 +16,9 @@
 		<releaseNotes></releaseNotes>
 		<copyright>Copyright 2013-2021 Imre Pühvel, AS Nortal. Licenced under Apache License 2.0.</copyright>
 		<tags>Nortal csv rfc4180</tags>
+		<dependencies>
+			<group targetFramework=".NETStandard2.0" />
+		</dependencies>
 	</metadata>
 	<files>
 		<file src="bin\$configuration$\netstandard2.0\Nortal.Utilities.Csv.dll" target="lib\netstandard2.0\"/>
