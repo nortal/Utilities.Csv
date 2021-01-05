@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0"?>
-<package >
-	<metadata>
+<package>
+	<metadata minClientVersion="4.9.0">
 		<id>Nortal.Utilities.Csv</id>
 		<version>1.0.0.0</version>
 		<title>Nortal.Utilities.Csv</title>
@@ -8,14 +8,14 @@
 		<owners>Imre Pühvel, AS Nortal</owners>
 		<iconUrl>http://www.nortal.com/_gfx/logo-32x32.png</iconUrl>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
-		<licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.txt</licenseUrl>
+		<license type="expression">Apache-2.0</license>
 		<description>
 			.Net Standard library to read and write CSV format according to RFC4180. Can be used in strongly named projects.
 		</description>
 		<projectUrl>https://github.com/Nortal/Utilities.Csv</projectUrl>
 		<releaseNotes></releaseNotes>
 		<copyright>Copyright 2013-2021 Imre Pühvel, AS Nortal. Licenced under Apache License 2.0.</copyright>
-		<tags>Nortal csv</tags>
+		<tags>Nortal csv rfc4180</tags>
 	</metadata>
 	<files>
 		<file src="bin\$configuration$\netstandard2.0\Nortal.Utilities.Csv.dll" target="lib\netstandard2.0\"/>
