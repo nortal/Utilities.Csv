@@ -21,8 +21,8 @@ using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("Nortal.Utilities.Csv")]
 [assembly: AssemblyProduct("Nortal.Utilities.Csv")]
-[assembly: AssemblyDescription("Tool for reading and writing CSV files. See more: https://github.com/NortalLTD/Utilities.Csv")]
-[assembly: AssemblyCopyright("Copyright © Imre Pühvel, Nortal AS 2013-2016")]
+[assembly: AssemblyDescription("Tool for reading and writing CSV files. See more: https://github.com/Nortal/Utilities.Csv")]
+[assembly: AssemblyCopyright("Copyright © Imre Pühvel, Nortal AS 2013-2021")]
 
 [assembly: ComVisible(false)]
 

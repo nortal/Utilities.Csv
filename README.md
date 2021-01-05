@@ -15,7 +15,9 @@ Features include:
 Implementation
 -----------------
 This implementation is based on RFC 4180 (http://tools.ietf.org/rfc/rfc4180.txt).
-Requires .Net Framework 3.5 Client profile, can be used in strongly named projects. 
+
+.Net Standerd 2.0 library, can be used in strongly named projects.
+
 Licenced under Apache Licence v2.0.
 
 Getting started
